@@ -17,4 +17,17 @@ class ProjectController extends Controller
             'projects' => $projects
         ]);
     }
+
+    public function store(Request $request)
+    {
+
+        $validateData = $request->validate([
+            'project_title' => 'required',
+            'project_description' => 'required|string|max:1000',
+            'project_date' => 'required|date'
+        ]);
+
+        $project = Project::create($validateData);
+        return response()->json(['message' =>'Project created successfully'],200);
+    }
 }
