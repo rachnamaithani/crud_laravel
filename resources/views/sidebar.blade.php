@@ -5,12 +5,8 @@
         <a href="{{url('./create-projects')}}" class= "p-3 btn btn-success"><i class="fa fa-plus" style="font-size:16px;color:#fff">  </i>  Add a new Project</a>
     </div>
     <div class="">
-        <ul class="list-unstyled ms-4">
-            @if($project->isNotEmpty())
-                @foreach($project as $project)
-                    <a href="{{route('projectbyid.show',['project_id'=>$project->project_id])}}" class="text-light text-decoration-none"><li class="mb-2 ">{{ $project->project_title }}</li></a>
-                @endforeach
-            @endif
+        <button class="btn btn-sm" onclick="fetchAndRenderProjects()">Refresh</button>
+        <ul class="list-unstyled ms-4" id="projects">
         </ul>
     </div>
 </div>

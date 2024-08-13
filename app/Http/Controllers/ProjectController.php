@@ -29,15 +29,13 @@ class ProjectController extends Controller
             'project_title' => $request->input('project_title'),
             'project_description' => $request->input('project_description'),
             'project_date' => $request->input('project_date'),
-        ]); 
+        ]);
         return redirect()->route('project.show',['project_id'=>$project->project_id])->with('success', 'Project created successfully.');
     }
 
-    public function show(){
-
-        $pro = \App\Models\Project::all();
-        return view('welcome',compact('pro'));
-
+    public function show()
+    {
+        return view('welcome');
     }
 
     public function showProject(Request $request)
